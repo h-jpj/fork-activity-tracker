@@ -54,12 +54,12 @@ The Fork Activity Tracker is a Visual Studio Code extension designed to help dev
 │   └── ...               
 │
 ├── your-original-repo    
-    ├── .git
-    ├── src               
-    │   ├── file1.c
-    │   └── file2.c
-    ├── README.md         
-    └── ...    
+|   ├── .git
+|   ├── src               
+|   │   ├── file1.c
+|   │   └── file2.c
+|   ├── README.md         
+|   └── ...    
 
 ## Important Notes
 
