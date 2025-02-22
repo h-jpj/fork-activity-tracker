@@ -1,24 +1,23 @@
 {
   "name": "fork-activity-tracker",
   "displayName": "Fork Activity Tracker",
-  "description": "Tracks changes in forked repos you work on locally and pushes these changes every 30mins to a separate repo named 'Forked-Logs' so that GitHub displays these commits on your profile.",
+  "description": "Tracks changes in forked repos and pushes them to a separate repository.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.97.0"
+    "vscode": "^1.0.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onStartupFinished",
-    "workspaceContains:.git"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "for-activity-tracker.trackChanges",
-        "title": "Start Tracking Forked Changes"
+        "command": "fork-activity-tracker.helloWorld",
+        "title": "Hello World"
       }
     ]
   },
@@ -37,11 +36,9 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.97.0",
+    "@types/vscode": "^1.0.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@typescript-eslint/eslint-plugin": "^8.22.0",
-    "@typescript-eslint/parser": "^8.22.0",
     "eslint": "^9.19.0",
     "esbuild": "^0.24.2",
     "npm-run-all": "^4.1.5",
