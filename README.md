@@ -1,71 +1,84 @@
-# fork-activity-tracker README
+# Fork Activity Tracker
 
-This is the README for your extension "fork-activity-tracker". After writing up a brief description, we recommend including the following sections.
+## Overview
+
+**Fork Activity Tracker** is a Visual Studio Code extension designed to help developers keep track of their changes in forked repositories. It automatically commits changes to a separate repository named **`forked-changes`** at regular intervals, ensuring that these contributions are visible on your GitHub profile. This tool helps showcase your coding activity, especially when working on forks.
+Please feel free to fork this a made your version as this probably isn't the best way to go about doing this.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Monitors file changes in your local workspace.
+- Automatically commits changes to a designated repository every 30 minutes (configurable).
+- Generates meaningful commit messages based on file modifications.
+- Uses SSH for pushing changes if an SSH key is available, otherwise falls back to HTTPS.
+- Easy to set up and integrate into your existing workflow.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. **Clone the Repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd <your-repo-folder>
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+    Install Dependencies: Make sure you have Node.js installed, then run:
 
-## Requirements
+npm install
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Compile the Extension: Compile the TypeScript code to JavaScript:
 
-## Extension Settings
+npm run compile
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Open in VS Code: Open the project in Visual Studio Code:
 
-For example:
+    code .
 
-This extension contributes the following settings:
+    Run the Extension: Press F5 to start a new Extension Development Host instance of VS Code with your extension.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+Configuration
 
-## Known Issues
+    Create a forked-changes Repository: Before using the extension, create a new repository on GitHub named forked-changes in your account.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+    Set Up SSH or HTTPS:
+        If using SSH, ensure your GitHub SSH key is added to the SSH agent.
+        If using HTTPS, set your GitHub username and Personal Access Token (PAT) appropriately.
 
-## Release Notes
+    Adjust Push Interval (optional): You can configure the push interval by modifying the pushInterval setting in your settings.json file (default is set to 30 minutes):
 
-Users appreciate release notes as you update your extension.
+    {
+        "forkActivityTracker.pushInterval": 30
+    }
 
-### 1.0.0
+Usage
 
-Initial release of ...
+    Open a folder containing a Git repository in Visual Studio Code.
+    Make changes to your files as usual.
+    The extension will monitor file saves and track changes.
+    Commits will be automatically created and pushed to the forked-changes repository at the specified interval.
 
-### 1.0.1
+Contribution
 
-Fixed issue #.
+Feel free to fork the repository and submit pull requests for any improvements or new features. If you encounter any issues, please open an issue in the GitHub repository.
+License
 
-### 1.1.0
+This project is licensed under the GPL3 License. See the LICENSE file for details.
+Acknowledgments
 
-Added features X, Y, and Z.
+    Thanks to the Visual Studio Code team for providing an amazing platform for extensions.
+    Special thanks to the Git community for their tools and libraries that made this extension possible.
 
----
+Contact
 
-## Following extension guidelines
+For questions or feedback, please reach out to harveyjay@tuta.io.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+### Key Sections of the README:
+- **Overview**: A brief description of what the extension does.
+- **Features**: Highlighting the key functionalities of the extension.
+- **Installation**: Step-by-step guide on how to set up the extension.
+- **Configuration**: Instructions for creating the `forked-changes` repository and setting up SSH or HTTPS.
+- **Usage**: A brief explanation of how to use the extension.
+- **Contribution**: Information on how others can contribute to the project.
+- **License**: Licensing information.
+- **Contact**: How users can get in touch for questions or feedback.
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+You can modify this template according to your needs or preferences. If you have any specific information you'd like to add or change, let me know!
