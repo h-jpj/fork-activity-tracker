@@ -44,6 +44,7 @@ The Fork Activity Tracker is a Visual Studio Code extension designed to help dev
 - As you work on files in your forked repository, the extension will automatically detect saved changes.
 - It will copy modified files to the `forked-changes` repository and commit these changes with a generated message.
 - You can configure the automatic commit interval through the extension settings in VS Code.
+- The `forked-changes` repo should be in the same parent directory that you clone all repos to.
 
 /path/to/your/projects
 
