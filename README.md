@@ -1,55 +1,74 @@
-# Fork Activity Tracker
+# Fork Activity Tracker Extension
 
-The **Fork Activity Tracker** extension for Visual Studio Code helps you maintain visibility of your work on forked repositories. It automatically commits and pushes changes made in your local forked repository to a separate repository named "forked-changes." This allows you to showcase your activity on GitHub, improving your profile's visibility to potential employers.
+The Fork Activity Tracker is a Visual Studio Code extension designed to help developers track their contributions to forked repositories. This extension automatically commits and pushes changes made in a forked repository to a designated "forked-changes" repository, ensuring that these contributions are reflected in your GitHub profile. This is designed for private repos, non-default branches, forked repos that are not merged and deleted repos.
 
 ## Features
 
-- **Automatic Tracking**: Monitors changes in your forked repository and commits them automatically.
-- **Commit Messages**: Generates informative commit messages based on the changes made to files.
-- **SSH and HTTPS Support**: Uses SSH for pushing changes if an SSH key is available; otherwise, it falls back to HTTPS.
-- **Configurable Push Interval**: Set how often (in minutes) the extension should push changes to the "forked-changes" repository.
+- Automatically monitors and commits changes to the specified `forked-changes` repository.
+- Copies modified files to the `forked-changes` directory that you cloned.
+- Allows users to input their own remote repository URL.
+- Generates detailed commit messages based on the changes made.
+- Only works with SSH as of right now.
+
+## Prerequisites
+
+- Visual Studio Code
+- Node.js (version 12 or later)
+- Git
 
 ## Setup Instructions
 
-1. **Install the Extension**: Clone this repository and open it in Visual Studio Code. Use the command palette (`Ctrl + Shift + P` or `Cmd + Shift + P`) and select `Extensions: Install from VSIX...` to install the extension.
+1. **Create the `forked-changes` Repository**:
+   - Go to GitHub and create a new repository called `forked-changes`. Make sure it is empty.
 
-2. **Create Forked Changes Repository**: Create a new repository on GitHub named "forked-changes." Ensure you have the proper permissions set up.
+2. **Clone the Repository**:
+   - Clone the `forked-changes` repository to a location above your current working repository (the repository you will be making changes to). For example:
+     ```bash
+     cd /path/to/your/projects
+     git clone git@github.com:yourusername/forked-changes.git
+     ```
 
-3. **Configure the Extension**:
-   - Open your workspace settings (`.vscode/settings.json`) and add the following configuration:
+3. **Install the Extension**:
+   - Clone this repository containing the Fork Activity Tracker extension.
+   - Open the cloned extension in Visual Studio Code.
+   - Press `F5` to start the extension in a new Extension Development Host instance.
 
-   ```json
-   {
-       "forkActivityTracker.pushInterval": 30 // Push changes every 30 minutes
-   }
+4. **Set Up the Remote URL**:
+   - The first time you run the extension, you will be prompted to enter the SSH URL of your `forked-changes` repository. Use the following format:
+     ```
+     git@github.com:yourusername/forked-changes.git
+     ```
 
-    Usage:
-        Open your forked repository in Visual Studio Code.
-        Make changes to your code as needed. The extension will automatically track and commit these changes.
-        Every configured interval, the extension will push the changes to the "forked-changes" repository, showcasing your activity.
+## Usage
 
-Development
-Requirements
+- As you work on files in your forked repository, the extension will automatically detect saved changes.
+- It will copy modified files to the `forked-changes` repository and commit these changes with a generated message.
+- You can configure the automatic commit interval through the extension settings in VS Code.
 
-    Node.js
-    Visual Studio Code
-    TypeScript
+/path/to/your/projects
+│
+├── forked-changes
+│   ├── .git
+│   ├── README.md          # Documentation for the forked-changes repo
+│   └── ...               # Other files or directories as needed
+│
+├── your-original-repo    # The original repository you are working on (forked repo)
+    ├── .git
+    ├── src               # Source code directory
+    │   ├── file1.c
+    │   └── file2.c
+    ├── README.md         # Documentation for your original repo
+    └── ...    
 
-Building the Extension
+## Important Notes
 
-    Install Dependencies: Run the following command in the project directory:
+- Make sure that your `forked-changes` repository is accessible (i.e., ensure you have the correct SSH setup).
+- If you encounter any issues, check the debug console in Visual Studio Code for error messages.
 
-npm install
+## License
 
-Compile the TypeScript Code: Use the command:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-    npm run compile
+## Acknowledgments
 
-    Run the Extension: Press F5 in Visual Studio Code to launch a new Extension Development Host window with the extension loaded.
-
-Contributions
-
-Feel free to contribute to the project by creating issues, submitting pull requests, or suggesting improvements.
-License
-
-This project is licensed under the MIT License.
+- Special thanks to the open-source community for providing tools and resources to help build this extension.
