@@ -46,6 +46,7 @@ The Fork Activity Tracker is a Visual Studio Code extension designed to help dev
 - You can configure the automatic commit interval through the extension settings in VS Code.
 
 /path/to/your/projects
+
 │
 ├── forked-changes
 │   ├── .git
